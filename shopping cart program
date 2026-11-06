@@ -1,0 +1,15 @@
+cart=[]
+total=0
+while True:
+    item=input("Enter an item to add to the cart (or type 'q or Q to quit): ")
+    if item.lower()=='q':
+        break
+    else:
+        price=float(input(f"Enter the price of {item}:"))
+        cart.append(item)
+        total+=price
+print("Items in your cart:")
+for i in cart:
+    print(i)
+print(f"total price is:${total:.2f}")
+
