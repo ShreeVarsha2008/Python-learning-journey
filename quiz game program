@@ -1,0 +1,42 @@
+questions = (
+    "What is the capital of India?",
+    "What color is the sky?",
+    "Which state is Chennai in?",
+    "What is the SI unit of power?",
+)
+options = (
+    ("A. Delhi", "B. Mumbai", "C. Chennai"),
+    ("A. Blue", "B. Red", "C. Purple"),
+    ("A. Goa", "B. AP", "C. TN"),
+    ("A. Watt", "B. Newton", "C. Pascal"),
+)
+answers = ("A", "A", "C", "A")
+
+guesses = []
+score = 0
+
+for num, question in enumerate(questions):
+    print("--------------------")
+    print(question)
+    for option in options[num]:
+        print(option)
+
+    guess = input("Choose an option (A, B, C): ").strip().upper()
+    while guess not in ("A", "B", "C"):
+        guess = input("Invalid. Please enter A, B, or C: ").strip().upper()
+    guesses.append(guess)
+
+    if guess == answers[num]:
+        score += 4
+        print("Correct answer!")
+    else:
+        score -= 1
+        print("Wrong answer.")
+        print("Correct answer is:", answers[num])
+
+print("--------------------")
+print("Quiz completed")
+print("Answers:", " ".join(answers))
+print("Your guesses:", " ".join(guesses))
+print(f"Your score is: {score} / {4 * len(questions)}")
+print("--------------------")
